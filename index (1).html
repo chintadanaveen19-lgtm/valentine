@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 50px;
+      color: #c41e3a;
+      margin-bottom: 40px;
+    }
+    .button-container {
+      position: relative;
+      height: 200px;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      background: #ff1744;
+      color: white;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    #noBtn {
+      position: absolute;
+      background: #666;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .result {
+      font-size: 60px;
+      color: #c41e3a;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Will you be my Valentine? 💘</h1>
+
+  <div class="button-container">
+    <button onclick="yes()" aria-label="Yes, I will be your Valentine">Yes ❤️</button>
+    <button id="noBtn" onmouseover="move()" onclick="move()" aria-label="No, I won't be your Valentine">No 💔</button>
+  </div>
+
+  <script>
+    function yes() {
+      document.body.innerHTML = "<h1 class='result'>Yay! 💖 I knew it 😍</h1>";
+    }
+
+    function move() {
+      const btn = document.getElementById("noBtn");
+      const maxX = window.innerWidth - btn.offsetWidth - 20;
+      const maxY = window.innerHeight - btn.offsetHeight - 20;
+      
+      let x = Math.random() * maxX;
+      let y = Math.random() * maxY;
+      
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+      btn.style.transform = "none";
+    }
+  </script>
+
+</body>
+</html>
